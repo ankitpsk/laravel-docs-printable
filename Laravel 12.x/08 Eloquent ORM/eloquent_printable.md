@@ -39,6 +39,8 @@
     - [Observers](#observers)
     - [Muting Events](#muting-events)
 
+<div style="page-break-after: always"></div>
+
 <a name="introduction"></a>
 ## Introduction
 
@@ -81,6 +83,11 @@ php artisan make:model Flight -c
 php artisan make:model Flight --controller --resource --requests
 php artisan make:model Flight -crR
 
+```
+
+<div style="page-break-after: always"></div>
+
+```shell
 # Generate a model and a FlightPolicy class...
 php artisan make:model Flight --policy
 
@@ -122,6 +129,7 @@ class Flight extends Model
     // ...
 }
 ```
+<div style="page-break-after: always"></div>
 
 <a name="table-names"></a>
 ### Table Names
@@ -208,6 +216,8 @@ class Flight extends Model
 
 Eloquent requires each model to have at least one uniquely identifying "ID" that can serve as its primary key. "Composite" primary keys are not supported by Eloquent models. However, you are free to add additional multi-column, unique indexes to your database tables in addition to the table's uniquely identifying primary key.
 
+<div style="page-break-after: always"></div>
+
 <a name="uuid-and-ulid-keys"></a>
 ### UUID and ULID Keys
 
@@ -237,7 +247,6 @@ You can override the UUID generation process for a given model by defining a `ne
 
 ```php
 use Ramsey\Uuid\Uuid;
-
 /**
  * Generate a new UUID for the model.
  */
@@ -297,6 +306,7 @@ class Flight extends Model
     public $timestamps = false;
 }
 ```
+<div style="page-break-after: always"></div>
 
 If you need to customize the format of your model's timestamps, set the `$dateFormat` property on your model. This property determines how date attributes are stored in the database as well as their format when the model is serialized to an array or JSON:
 
@@ -335,6 +345,7 @@ If you would like to perform model operations without the model having its `upda
 ```php
 Model::withoutTimestamps(fn () => $post->increment('reads'));
 ```
+<div style="page-break-after: always"></div>
 
 <a name="database-connections"></a>
 ### Database Connections
@@ -422,6 +433,7 @@ foreach (Flight::all() as $flight) {
     echo $flight->name;
 }
 ```
+<div style="page-break-after: always"></div>
 
 <a name="building-queries"></a>
 #### Building Queries
@@ -460,6 +472,7 @@ $flight->refresh();
 
 $flight->number; // "FR 900"
 ```
+<div style="page-break-after: always"></div>
 
 <a name="collections"></a>
 ### Collections
@@ -540,6 +553,7 @@ foreach (Flight::lazy() as $flight) {
     // ...
 }
 ```
+<div style="page-break-after: always"></div>
 
 If you are filtering the results of the `lazy` method based on a column that you will also be updating while iterating over the results, you should use the `lazyById` method. Internally, the `lazyById` method will always retrieve models with an `id` column greater than the last model in the previous chunk:
 
@@ -621,6 +635,7 @@ return Destination::orderByDesc(
         ->limit(1)
 )->get();
 ```
+<div style="page-break-after: always"></div>
 
 <a name="retrieving-single-models"></a>
 ## Retrieving Single Models / Aggregates
@@ -662,6 +677,7 @@ $flight = Flight::findOrFail(1);
 
 $flight = Flight::where('legs', '>', 3)->firstOrFail();
 ```
+<div style="page-break-after: always"></div>
 
 If the `ModelNotFoundException` is not caught, a 404 HTTP response is automatically sent back to the client:
 
@@ -705,6 +721,7 @@ $flight = Flight::firstOrNew(
     ['delayed' => 1, 'arrival_time' => '11:30']
 );
 ```
+<div style="page-break-after: always"></div>
 
 <a name="retrieving-aggregates"></a>
 ### Retrieving Aggregates
@@ -837,9 +854,7 @@ $user->isClean(); // false
 $user->isClean('title'); // false
 $user->isClean('first_name'); // true
 $user->isClean(['first_name', 'title']); // false
-
 $user->save();
-
 $user->isDirty(); // false
 $user->isClean(); // true
 ```
@@ -878,6 +893,7 @@ $user->name; // Jack
 $user->getOriginal('name'); // John
 $user->getOriginal(); // Array of original attributes...
 ```
+<div style="page-break-after: always"></div>
 
 The `getChanges` method returns an array containing the attributes that changed when the model was last saved:
 
@@ -918,6 +934,7 @@ $flight = Flight::create([
 However, before using the `create` method, you will need to specify either a `fillable` or `guarded` property on your model class. These properties are required because all Eloquent models are protected against mass assignment vulnerabilities by default.
 
 A mass assignment vulnerability occurs when a user passes an unexpected HTTP request field and that field changes a column in your database that you did not expect. For example, a malicious user might send an `is_admin` parameter through an HTTP request, which is then passed to your model's `create` method, allowing the user to escalate themselves to an administrator.
+<div style="page-break-after: always"></div>
 
 So, to get started, you should define which model attributes you want to make mass assignable. You may do this using the `$fillable` property on the model. For example, let's make the `name` attribute of our `Flight` model mass assignable:
 
@@ -966,6 +983,7 @@ protected $fillable = [
     'options->enabled',
 ];
 ```
+<div style="page-break-after: always"></div>
 
 <a name="allowing-mass-assignment"></a>
 #### Allowing Mass Assignment
@@ -990,7 +1008,6 @@ If you wish, you may instruct Laravel to throw an exception when attempting to f
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-
 /**
  * Bootstrap any application services.
  */
@@ -1039,7 +1056,6 @@ Flight::destroy(1);
 Flight::destroy(1, 2, 3);
 
 Flight::destroy([1, 2, 3]);
-
 Flight::destroy(collect([1, 2, 3]));
 ```
 
@@ -1106,6 +1122,7 @@ Schema::table('flights', function (Blueprint $table) {
     $table->dropSoftDeletes();
 });
 ```
+<div style="page-break-after: always"></div>
 
 Now, when you call the `delete` method on the model, the `deleted_at` column will be set to the current date and time. However, the model's database record will be left in the table. When querying a model that uses soft deletes, the soft deleted models will automatically be excluded from all query results.
 
@@ -1129,9 +1146,7 @@ $flight->restore();
 You may also use the `restore` method in a query to restore multiple models. Again, like other "mass" operations, this will not dispatch any model events for the models that are restored:
 
 ```php
-Flight::withTrashed()
-    ->where('airline_id', 1)
-    ->restore();
+Flight::withTrashed()->where('airline_id', 1)->restore();
 ```
 
 The `restore` method may also be used when building [relationship](/docs/{{version}}/eloquent-relationships) queries:
@@ -1154,6 +1169,7 @@ You may also use the `forceDelete` method when building Eloquent relationship qu
 ```php
 $flight->history()->forceDelete();
 ```
+<div style="page-break-after: always"></div>
 
 <a name="querying-soft-deleted-models"></a>
 ### Querying Soft Deleted Models
@@ -1187,6 +1203,7 @@ $flights = Flight::onlyTrashed()
     ->where('airline_id', 1)
     ->get();
 ```
+<div style="page-break-after: always"></div>
 
 <a name="pruning-models"></a>
 ## Pruning Models
@@ -1227,6 +1244,7 @@ protected function pruning(): void
     // ...
 }
 ```
+<div style="page-break-after: always"></div>
 
 After configuring your prunable model, you should schedule the `model:prune` Artisan command in your application's `routes/console.php` file. You are free to choose the appropriate interval at which this command should be run:
 
@@ -1260,6 +1278,7 @@ php artisan model:prune --pretend
 
 > [!WARNING]
 > Soft deleting models will be permanently deleted (`forceDelete`) if they match the prunable query.
+<div style="page-break-after: always"></div>
 
 <a name="mass-pruning"></a>
 #### Mass Pruning
@@ -1344,6 +1363,7 @@ To generate a new global scope, you may invoke the `make:scope` Artisan command,
 ```shell
 php artisan make:scope AncientScope
 ```
+<div style="page-break-after: always"></div>
 
 <a name="writing-global-scopes"></a>
 #### Writing Global Scopes
@@ -1397,10 +1417,7 @@ class User extends Model
 Or, you may manually register the global scope by overriding the model's `booted` method and invoke the model's `addGlobalScope` method. The `addGlobalScope` method accepts an instance of your scope as its only argument:
 
 ```php
-<?php
-
 namespace App\Models;
-
 use App\Models\Scopes\AncientScope;
 use Illuminate\Database\Eloquent\Model;
 
@@ -1428,10 +1445,7 @@ select * from `users` where `created_at` < 0021-02-18 00:00:00
 Eloquent also allows you to define global scopes using closures, which is particularly useful for simple scopes that do not warrant a separate class of their own. When defining a global scope using a closure, you should provide a scope name of your own choosing as the first argument to the `addGlobalScope` method:
 
 ```php
-<?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -1482,12 +1496,11 @@ User::withoutGlobalScopes([
 Local scopes allow you to define common sets of query constraints that you may easily re-use throughout your application. For example, you may need to frequently retrieve all users that are considered "popular". To define a scope, prefix an Eloquent model method with `scope`.
 
 Scopes should always return the same query builder instance or `void`:
+<div style="page-break-after: always"></div>
 
 ```php
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -1518,7 +1531,6 @@ Once the scope has been defined, you may call the scope methods when querying th
 
 ```php
 use App\Models\User;
-
 $users = User::popular()->active()->orderBy('created_at')->get();
 ```
 
@@ -1535,6 +1547,8 @@ However, since this can be cumbersome, Laravel provides a "higher order" `orWher
 ```php
 $users = User::popular()->orWhere->active()->get();
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="dynamic-scopes"></a>
 #### Dynamic Scopes
@@ -1566,6 +1580,8 @@ Once the expected arguments have been added to your scope method's signature, yo
 ```php
 $users = User::ofType('admin')->get();
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="pending-attributes"></a>
 ### Pending Attributes
@@ -1638,10 +1654,7 @@ The `retrieved` event will dispatch when an existing model is retrieved from the
 To start listening to model events, define a `$dispatchesEvents` property on your Eloquent model. This property maps various points of the Eloquent model's lifecycle to your own [event classes](/docs/{{version}}/events). Each model event class should expect to receive an instance of the affected model via its constructor:
 
 ```php
-<?php
-
 namespace App\Models;
-
 use App\Events\UserDeleted;
 use App\Events\UserSaved;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -1650,7 +1663,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
     /**
      * The event map for the model.
      *
@@ -1674,12 +1686,8 @@ After defining and mapping your Eloquent events, you may use [event listeners](/
 Instead of using custom event classes, you may register closures that execute when various model events are dispatched. Typically, you should register these closures in the `booted` method of your model:
 
 ```php
-<?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class User extends Model
 {
     /**
@@ -1799,6 +1807,7 @@ public function boot(): void
 
 > [!NOTE]
 > There are additional events an observer can listen to, such as `saving` and `retrieved`. These events are described within the [events](#events) documentation.
+<div style="page-break-after: always"></div>
 
 <a name="observers-and-database-transactions"></a>
 #### Observers and Database Transactions
@@ -1839,6 +1848,7 @@ $user = User::withoutEvents(function () {
     return User::find(2);
 });
 ```
+<div style="page-break-after: always"></div>
 
 <a name="saving-a-single-model-without-events"></a>
 #### Saving a Single Model Without Events
