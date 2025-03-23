@@ -1870,3 +1870,5 @@ $user->deleteQuietly();
 $user->forceDeleteQuietly();
 $user->restoreQuietly();
 ```
+
+<div style="page-break-after: always"></div>
