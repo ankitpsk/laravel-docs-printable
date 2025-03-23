@@ -9,6 +9,9 @@ This repository provides a **well-formatted, print-friendly PDF version** of the
 🔔 **Stay Updated!**  
 Watch this repository to get notified when new Laravel versions are released in a **printable PDF format**.  
 
+## 🌱 Print Smart, Save Trees  
+Let's make a difference! 🌍 **Print only when necessary**, limit printing to once a year, and when you're done, **recycle responsibly**.
+
 ## 🙌 Support & Appreciation  
 
 Maintaining this project **regularly** takes time and effort. If you find it useful, consider **starring the repo** ⭐ or sharing it with the community! Your support keeps this project alive.  
