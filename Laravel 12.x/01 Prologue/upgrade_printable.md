@@ -65,6 +65,8 @@ You should update the following dependencies in your application's `composer.jso
 
 Support for [Carbon 2.x](https://carbon.nesbot.com/docs/) has been removed. All Laravel 12 applications now require [Carbon 3.x](https://carbon.nesbot.com/docs/#api-carbon-3).
 
+<div style="page-break-after: always"></div>
+
 <a name="updating-the-laravel-installer"></a>
 ### Updating the Laravel Installer
 
@@ -100,6 +102,8 @@ Or, if you are using [Laravel Herd's](https://herd.laravel.com) bundled copy of 
 **Likelihood Of Impact: Very Low**
 
 The constructor of the `Illuminate\Auth\Passwords\DatabaseTokenRepository` class now expects the `$expires` parameter to be given in seconds, rather than minutes.
+
+<div style="page-break-after: always"></div>
 
 <a name="concurrency"></a>
 ### Concurrency
@@ -145,6 +149,8 @@ $example->date instanceof Carbon;
 $example->date === null;
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="database"></a>
 ### Database
 
@@ -180,6 +186,8 @@ $table = Schema::getTableListing(schema: 'main', schemaQualified: false);
 ```
 
 The `db:table` and `db:show` commands now output the results of all schemas on MySQL, MariaDB, and SQLite, just like PostgreSQL and SQL Server.
+
+<div style="page-break-after: always"></div>
 
 <a name="eloquent"></a>
 ### Eloquent
@@ -235,3 +243,5 @@ use Illuminate\Validation\Rules\File;
 ### Miscellaneous
 
 We also encourage you to view the changes in the `laravel/laravel` [GitHub repository](https://github.com/laravel/laravel). While many of these changes are not required, you may wish to keep these files in sync with your application. Some of these changes will be covered in this upgrade guide, but others, such as changes to configuration files or comments, will not be. You can easily view the changes with the [GitHub comparison tool](https://github.com/laravel/laravel/compare/11.x...12.x) and choose which updates are important to you.
+
+<div style="page-break-after: always"></div>

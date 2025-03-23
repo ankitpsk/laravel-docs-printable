@@ -22,6 +22,7 @@ Remember, bug reports are created in the hope that others with the same problem 
 
 If you notice improper DocBlock, PHPStan, or IDE warnings while using Laravel, do not create a GitHub issue. Instead, please submit a pull request to fix the problem.
 
+<div style="page-break-after: always"></div>
 The Laravel source code is managed on GitHub, and there are repositories for each of the Laravel projects:
 
 <div class="content-list" markdown="1">
@@ -72,6 +73,8 @@ Laravel's GitHub issue trackers are not intended to provide Laravel help or supp
 
 </div>
 
+<div style="page-break-after: always"></div>
+
 <a name="core-development-discussion"></a>
 ## Core Development Discussion
 
@@ -102,6 +105,8 @@ If you discover a security vulnerability within Laravel, please send an email to
 ## Coding Style
 
 Laravel follows the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) coding standard and the [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) autoloading standard.
+
+<div style="page-break-after: always"></div>
 
 <a name="phpdoc"></a>
 ### PHPDoc
@@ -142,7 +147,6 @@ However, when the native type is generic, please specify the generic type throug
 ```php
 /**
  * Get the attachments for the message.
- *
  * @return array<int, \Illuminate\Mail\Mailables\Attachment>
  */
 public function attachments(): array
@@ -152,6 +156,7 @@ public function attachments(): array
     ];
 }
 ```
+<div style="page-break-after: always"></div>
 
 <a name="styleci"></a>
 ### StyleCI
@@ -171,3 +176,5 @@ The Laravel code of conduct is derived from the Ruby code of conduct. Any violat
 - Behavior that can be reasonably considered harassment will not be tolerated.
 
 </div>
+
+<div style="page-break-after: always"></div>

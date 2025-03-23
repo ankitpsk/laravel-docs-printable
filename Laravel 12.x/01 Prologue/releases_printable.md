@@ -45,6 +45,8 @@ For all Laravel releases, bug fixes are provided for 18 months and security fixe
 
 (*) Supported PHP versions
 
+<div style="page-break-after: always"></div>
+
 <a name="laravel-12"></a>
 ## Laravel 12
 
@@ -67,3 +69,5 @@ The React, Vue, and Livewire starter kits all utilize Laravel's built-in authent
 With the introduction of our new application starter kits, Laravel Breeze and Laravel Jetstream will no longer receive additional updates.
 
 To get started with our new starter kits, check out the [starter kit documentation](/docs/{{version}}/starter-kits).
+
+<div style="page-break-after: always"></div>
