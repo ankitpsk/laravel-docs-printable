@@ -28,6 +28,8 @@ Route::get('/cache', function () {
 
 Throughout the Laravel documentation, many of the examples will use facades to demonstrate various features of the framework.
 
+<div style="page-break-after: always"></div>
+
 <a name="helper-functions"></a>
 #### Helper Functions
 
@@ -57,6 +59,8 @@ Route::get('/users', function () {
 Facades have many benefits. They provide a terse, memorable syntax that allows you to use Laravel's features without remembering long class names that must be injected or configured manually. Furthermore, because of their unique usage of PHP's dynamic methods, they are easy to test.
 
 However, some care must be taken when using facades. The primary danger of facades is class "scope creep". Since facades are so easy to use and do not require injection, it can be easy to let your classes continue to grow and use many facades in a single class. Using dependency injection, this potential is mitigated by the visual feedback a large constructor gives you that your class is growing too large. So, when using facades, pay special attention to the size of your class so that its scope of responsibility stays narrow. If your class is getting too large, consider splitting it into multiple smaller classes.
+
+<div style="page-break-after: always"></div>
 
 <a name="facades-vs-dependency-injection"></a>
 ### Facades vs. Dependency Injection
@@ -107,6 +111,8 @@ public function test_basic_example(): void
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="facades-vs-helper-functions"></a>
 ### Facades vs. Helper Functions
 
@@ -146,6 +152,8 @@ public function test_basic_example(): void
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="how-facades-work"></a>
 ## How Facades Work
 
@@ -177,6 +185,8 @@ class UserController extends Controller
 
 Notice that near the top of the file we are "importing" the `Cache` facade. This facade serves as a proxy for accessing the underlying implementation of the `Illuminate\Contracts\Cache\Factory` interface. Any calls we make using the facade will be passed to the underlying instance of Laravel's cache service.
 
+<div style="page-break-after: always"></div>
+
 If we look at that `Illuminate\Support\Facades\Cache` class, you'll see that there is no static method `get`:
 
 ```php
@@ -193,6 +203,8 @@ class Cache extends Facade
 ```
 
 Instead, the `Cache` facade extends the base `Facade` class and defines the method `getFacadeAccessor()`. This method's job is to return the name of a service container binding. When a user references any static method on the `Cache` facade, Laravel resolves the `cache` binding from the [service container](/docs/{{version}}/container) and runs the requested method (in this case, `get`) against that object.
+
+<div style="page-break-after: always"></div>
 
 <a name="real-time-facades"></a>
 ## Real-Time Facades
@@ -222,6 +234,8 @@ class Podcast extends Model
 ```
 
 Injecting a publisher implementation into the method allows us to easily test the method in isolation since we can mock the injected publisher. However, it requires us to always pass a publisher instance each time we call the `publish` method. Using real-time facades, we can maintain the same testability while not being required to explicitly pass a `Publisher` instance. To generate a real-time facade, prefix the namespace of the imported class with `Facades`:
+
+<div style="page-break-after: always"></div>
 
 ```php
 <?php
@@ -268,6 +282,8 @@ test('podcast can be published', function () {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 ```php tab=PHPUnit
 <?php
 
@@ -295,6 +311,8 @@ class PodcastTest extends TestCase
     }
 }
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="facade-class-reference"></a>
 ## Facade Class Reference
@@ -362,3 +380,5 @@ Below you will find every facade and its underlying class. This is a useful tool
 | Vite | [Illuminate\Foundation\Vite](https://api.laravel.com/docs/{{version}}/Illuminate/Foundation/Vite.html) | &nbsp; |
 
 </div>
+
+<div style="page-break-after: always"></div>

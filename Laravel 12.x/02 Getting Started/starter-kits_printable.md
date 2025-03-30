@@ -36,6 +36,7 @@ Then, create a new Laravel application using the Laravel installer CLI. The Lara
 ```shell
 laravel new my-app
 ```
+<div style="page-break-after: always"></div>
 
 After creating your Laravel application, you only need to install its frontend dependencies via NPM and start the Laravel development server:
 
@@ -76,6 +77,8 @@ Our Livewire starter kit provides the perfect starting point for building Larave
 Livewire is a powerful way of building dynamic, reactive, frontend UIs using just PHP. It's a great fit for teams that primarily use Blade templates and are looking for a simpler alternative to JavaScript-driven SPA frameworks like React and Vue.
 
 The Livewire starter kit utilizes Livewire, Tailwind, and the [Flux UI](https://fluxui.dev) component library.
+
+<div style="page-break-after: always"></div>
 
 <a name="starter-kit-customization"></a>
 ## Starter Kit Customization
@@ -119,6 +122,8 @@ const MyPage = () => {
 export default MyPage;
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="react-available-layouts"></a>
 #### Available Layouts
 
@@ -150,6 +155,8 @@ To change your authentication layout, modify the layout that is imported at the 
 import AuthLayoutTemplate from '@/layouts/auth/auth-simple-layout'; // [tl! remove]
 import AuthLayoutTemplate from '@/layouts/auth/auth-split-layout'; // [tl! add]
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="vue-customization"></a>
 ### Vue
@@ -198,6 +205,8 @@ import AppLayout from '@/layouts/app/AppSidebarLayout.vue'; // [tl! remove]
 import AppLayout from '@/layouts/app/AppHeaderLayout.vue'; // [tl! add]
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="vue-sidebar-variants"></a>
 #### Sidebar Variants
 
@@ -219,6 +228,7 @@ To change your authentication layout, modify the layout that is imported at the 
 import AuthLayout from '@/layouts/auth/AuthSimpleLayout.vue'; // [tl! remove]
 import AuthLayout from '@/layouts/auth/AuthSplitLayout.vue'; // [tl! add]
 ```
+
 
 <a name="livewire-customization"></a>
 ### Livewire
@@ -242,6 +252,8 @@ resources/views
 #### Traditional Livewire Components
 
 The frontend code is located in the `resouces/views` directory, while the `app/Livewire` directory contains the corresponding backend logic for the Livewire components.
+
+<div style="page-break-after: always"></div>
 
 <a name="livewire-available-layouts"></a>
 #### Available Layouts
@@ -268,6 +280,7 @@ To change your authentication layout, modify the layout that is used by your app
     {{ $slot }}
 </x-layouts.auth.split>
 ```
+<div style="page-break-after: always"></div>
 
 <a name="workos"></a>
 ## WorkOS AuthKit Authentication
@@ -309,6 +322,8 @@ When using a WorkOS powered starter kit, we recommend that you disable "Email + 
 
 In addition, we recommend that you configure your WorkOS AuthKit session inactivity timeout to match your Laravel application's configured session timeout threshold, which is typically two hours.
 
+<div style="page-break-after: always"></div>
+
 <a name="inertia-ssr"></a>
 ### Inertia SSR
 
@@ -338,6 +353,8 @@ laravel new my-app --using=example/starter-kit
 
 To ensure your starter kit is available to others, you will need to publish it to [Packagist](https://packagist.org). Your starter kit should define its required environment variables in its `.env.example` file, and any necessary post-installation commands should be listed in the `post-create-project-cmd` array of the starter kit's `composer.json` file.
 
+<div style="page-break-after: always"></div>
+
 <a name="faqs"></a>
 ### Frequently Asked Questions
 
@@ -352,8 +369,6 @@ Every starter kit gives you a solid starting point for your next application. Wi
 Email verification can be added by uncommenting the `MustVerifyEmail` import in your `App/Models/User.php` model and ensuring the model implements the `MustVerifyEmail` interface:
 
 ```php
-<?php
-
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -388,3 +403,5 @@ php artisan vendor:publish --tag=laravel-mail
 ```
 
 This will generate several files in `resources/views/vendor/mail`. You can modify any of these files as well as the `resources/views/vendor/mail/themes/default.css` file to change the look and appearance of the default email template.
+
+<div style="page-break-after: always"></div>

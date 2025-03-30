@@ -20,6 +20,8 @@
     - [Rebinding](#rebinding)
 - [PSR-11](#psr-11)
 
+<div style="page-break-after: always"></div>
+
 <a name="introduction"></a>
 ## Introduction
 
@@ -60,14 +62,14 @@ In this example, the `PodcastController` needs to retrieve podcasts from a data 
 
 A deep understanding of the Laravel service container is essential to building a powerful, large application, as well as for contributing to the Laravel core itself.
 
+<div style="page-break-after: always"></div>
+
 <a name="zero-configuration-resolution"></a>
 ### Zero Configuration Resolution
 
 If a class has no dependencies or only depends on other concrete classes (not interfaces), the container does not need to be instructed on how to resolve that class. For example, you may place the following code in your `routes/web.php` file:
 
 ```php
-<?php
-
 class Service
 {
     // ...
@@ -98,6 +100,8 @@ Route::get('/', function (Request $request) {
 In many cases, thanks to automatic dependency injection and [facades](/docs/{{version}}/facades), you can build Laravel applications without **ever** manually binding or resolving anything from the container. **So, when would you ever manually interact with the container?** Let's examine two situations.
 
 First, if you write a class that implements an interface and you wish to type-hint that interface on a route or class constructor, you must [tell the container how to resolve that interface](#binding-interfaces-to-implementations). Secondly, if you are [writing a Laravel package](/docs/{{version}}/packages) that you plan to share with other Laravel developers, you may need to bind your package's services into the container.
+
+<div style="page-break-after: always"></div>
 
 <a name="binding"></a>
 ## Binding
@@ -144,6 +148,8 @@ $this->app->bindIf(Transistor::class, function (Application $app) {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 For convenience, you may omit providing the class or interface name that you wish to register as a separate argument and instead allow Laravel to infer the type from the return type of the closure you provide to the `bind` method:
 
 ```php
@@ -177,6 +183,8 @@ $this->app->singletonIf(Transistor::class, function (Application $app) {
     return new Transistor($app->make(PodcastParser::class));
 });
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="binding-scoped"></a>
 #### Binding Scoped Singletons
@@ -215,6 +223,8 @@ $service = new Transistor(new PodcastParser);
 $this->app->instance(Transistor::class, $service);
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="binding-interfaces-to-implementations"></a>
 ### Binding Interfaces to Implementations
 
@@ -239,6 +249,8 @@ public function __construct(
     protected EventPusher $pusher,
 ) {}
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="contextual-binding"></a>
 ### Contextual Binding
@@ -273,8 +285,6 @@ Since contextual binding is often used to inject implementations of drivers or c
 For example, the `Storage` attribute may be used to inject a specific [storage disk](/docs/{{version}}/filesystem):
 
 ```php
-<?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Container\Attributes\Storage;
@@ -290,6 +300,8 @@ class PhotoController extends Controller
     }
 }
 ```
+
+<div style="page-break-after: always"></div>
 
 In addition to the `Storage` attribute, Laravel offers `Auth`, `Cache`, `Config`, `DB`, `Log`, `RouteParameter`, and [`Tag`](#tagging) attributes:
 
@@ -339,14 +351,14 @@ Route::get('/user', function (#[CurrentUser] User $user) {
 })->middleware('auth');
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="defining-custom-attributes"></a>
 #### Defining Custom Attributes
 
 You can create your own contextual attributes by implementing the `Illuminate\Contracts\Container\ContextualAttribute` contract. The container will call your attribute's `resolve` method, which should resolve the value that should be injected into the class utilizing the attribute. In the example below, we will re-implement Laravel's built-in `Config` attribute:
 
 ```php
-<?php
-
 namespace App\Attributes;
 
 use Attribute;
@@ -389,6 +401,8 @@ $this->app->when(UserController::class)
     ->needs('$variableName')
     ->give($value);
 ```
+
+<div style="page-break-after: always"></div>
 
 Sometimes a class may depend on an array of [tagged](#tagging) instances. Using the `giveTagged` method, you may easily inject all of the container bindings with that tag:
 
@@ -438,6 +452,8 @@ class Firewall
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 Using contextual binding, you may resolve this dependency by providing the `give` method with a closure that returns an array of resolved `Filter` instances:
 
 ```php
@@ -475,6 +491,8 @@ $this->app->when(ReportAggregator::class)
     ->giveTagged('reports');
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="tagging"></a>
 ### Tagging
 
@@ -510,6 +528,8 @@ $this->app->extend(Service::class, function (Service $service, Application $app)
     return new DecoratedService($service);
 });
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="resolving"></a>
 ## Resolving
@@ -551,6 +571,8 @@ $transistor = App::make(Transistor::class);
 
 $transistor = app(Transistor::class);
 ```
+
+<div style="page-break-after: always"></div>
 
 If you would like to have the Laravel container instance itself injected into a class that is being resolved by the container, you may type-hint the `Illuminate\Container\Container` class on your class's constructor:
 
@@ -598,6 +620,8 @@ class PodcastController extends Controller
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="method-invocation-and-injection"></a>
 ## Method Invocation and Injection
 
@@ -644,6 +668,8 @@ $result = App::call(function (AppleMusic $apple) {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="container-events"></a>
 ## Container Events
 
@@ -688,6 +714,8 @@ $this->app->rebinding(
 $this->app->bind(PodcastPublisher::class, TransistorPublisher::class);
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="psr-11"></a>
 ## PSR-11
 
@@ -705,3 +733,5 @@ Route::get('/', function (ContainerInterface $container) {
 ```
 
 An exception is thrown if the given identifier can't be resolved. The exception will be an instance of `Psr\Container\NotFoundExceptionInterface` if the identifier was never bound. If the identifier was bound but was unable to be resolved, an instance of `Psr\Container\ContainerExceptionInterface` will be thrown.
+
+<div style="page-break-after: always"></div>

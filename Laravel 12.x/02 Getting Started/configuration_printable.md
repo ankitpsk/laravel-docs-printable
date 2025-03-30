@@ -39,6 +39,7 @@ Or, to explore a specific configuration file's values in detail, you may use the
 ```shell
 php artisan config:show database
 ```
+<div style="page-break-after: always"></div>
 
 <a name="environment-configuration"></a>
 ## Environment Configuration
@@ -65,6 +66,8 @@ However, it is possible to encrypt your environment file using Laravel's built-i
 #### Additional Environment Files
 
 Before loading your application's environment variables, Laravel determines if an `APP_ENV` environment variable has been externally provided or if the `--env` CLI argument has been specified. If so, Laravel will attempt to load an `.env.[APP_ENV]` file if it exists. If it does not exist, the default `.env` file will be loaded.
+
+<div style="page-break-after: always"></div>
 
 <a name="environment-variable-types"></a>
 ### Environment Variable Types
@@ -110,9 +113,9 @@ The current application environment is determined via the `APP_ENV` variable fro
 
 ```php
 use Illuminate\Support\Facades\App;
-
 $environment = App::environment();
 ```
+<div style="page-break-after: always"></div>
 
 You may also pass arguments to the `environment` method to determine if the environment matches a given value. The method will return `true` if the environment matches any of the given values:
 
@@ -158,6 +161,8 @@ If your application has multiple environment files, such as `.env` and `.env.sta
 php artisan env:encrypt --env=staging
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="decryption"></a>
 #### Decryption
 
@@ -193,6 +198,8 @@ In order to overwrite an existing environment file, you may provide the `--force
 php artisan env:decrypt --force
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="accessing-configuration-values"></a>
 ## Accessing Configuration Values
 
@@ -226,6 +233,7 @@ Config::float('config-key');
 Config::boolean('config-key');
 Config::array('config-key');
 ```
+<div style="page-break-after: always"></div>
 
 <a name="configuration-caching"></a>
 ## Configuration Caching
@@ -259,6 +267,7 @@ php artisan config:publish
 
 php artisan config:publish --all
 ```
+<div style="page-break-after: always"></div>
 
 <a name="debug-mode"></a>
 ## Debug Mode
@@ -290,6 +299,8 @@ You may also provide a `retry` option to the `down` command, which will be set a
 ```shell
 php artisan down --retry=60
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="bypassing-maintenance-mode"></a>
 #### Bypassing Maintenance Mode
@@ -328,6 +339,8 @@ Alternatively, Laravel offers a cache-based method for handling maintenance mode
 APP_MAINTENANCE_DRIVER=cache
 APP_MAINTENANCE_STORE=database
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="pre-rendering-the-maintenance-mode-view"></a>
 #### Pre-Rendering the Maintenance Mode View
@@ -370,3 +383,5 @@ While your application is in maintenance mode, no [queued jobs](/docs/{{version}
 #### Alternatives to Maintenance Mode
 
 Since maintenance mode requires your application to have several seconds of downtime, consider running your applications on a fully-managed platform like [Laravel Cloud](https://cloud.laravel.com) to accomplish zero-downtime deployment with Laravel.
+
+<div style="page-break-after: always"></div>

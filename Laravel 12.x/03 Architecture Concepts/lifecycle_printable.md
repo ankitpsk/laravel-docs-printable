@@ -16,6 +16,8 @@ When using any tool in the "real world", you feel more confident if you understa
 
 The goal of this document is to give you a good, high-level overview of how the Laravel framework works. By getting to know the overall framework better, everything feels less "magical" and you will be more confident building your applications. If you don't understand all of the terms right away, don't lose heart! Just try to get a basic grasp of what is going on, and your knowledge will grow as you explore other sections of the documentation.
 
+<div style="page-break-after: always"></div>
+
 <a name="lifecycle-overview"></a>
 ## Lifecycle Overview
 
@@ -48,6 +50,8 @@ Essentially every major feature offered by Laravel is bootstrapped and configure
 
 While the framework internally uses dozens of service providers, you also have the option to create your own. You can find a list of the user-defined or third-party service providers that your application is using in the `bootstrap/providers.php` file.
 
+<div style="page-break-after: always"></div>
+
 <a name="routing"></a>
 ### Routing
 
@@ -64,6 +68,8 @@ Once the route or controller method returns a response, the response will travel
 
 Finally, once the response travels back through the middleware, the HTTP kernel's `handle` method returns the response object to the `handleRequest` of the application instance, and this method calls the `send` method on the returned response. The `send` method sends the response content to the user's web browser. We've now completed our journey through the entire Laravel request lifecycle!
 
+<div style="page-break-after: always"></div>
+
 <a name="focus-on-service-providers"></a>
 ## Focus on Service Providers
 
@@ -72,3 +78,5 @@ Service providers are truly the key to bootstrapping a Laravel application. The 
 Having a firm grasp of how a Laravel application is built and bootstrapped via service providers is very valuable. Your application's user-defined service providers are stored in the `app/Providers` directory.
 
 By default, the `AppServiceProvider` is fairly empty. This provider is a great place to add your application's own bootstrapping and service container bindings. For large applications, you may wish to create several service providers, each with more granular bootstrapping for specific services used by your application.
+
+<div style="page-break-after: always"></div>

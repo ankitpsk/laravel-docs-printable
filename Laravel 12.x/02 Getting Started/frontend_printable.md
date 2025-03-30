@@ -17,6 +17,8 @@ Laravel is a backend framework that provides all of the features you need to bui
 
 There are two primary ways to tackle frontend development when building an application with Laravel, and which approach you choose is determined by whether you would like to build your frontend by leveraging PHP or by using JavaScript frameworks such as Vue and React. We'll discuss both of these options below so that you can make an informed decision regarding the best approach to frontend development for your application.
 
+<div style="page-break-after: always"></div>
+
 <a name="using-php"></a>
 ## Using PHP
 
@@ -54,6 +56,8 @@ Others, preferring to stick with the backend language they are comfortable with,
 
 Within the Laravel ecosystem, the need to create modern, dynamic frontends by primarily using PHP has led to the creation of [Laravel Livewire](https://livewire.laravel.com) and [Alpine.js](https://alpinejs.dev/).
 
+<div style="page-break-after: always"></div>
+
 <a name="livewire"></a>
 ### Livewire
 
@@ -62,8 +66,6 @@ Within the Laravel ecosystem, the need to create modern, dynamic frontends by pr
 When using Livewire, you will create Livewire "components" that render a discrete portion of your UI and expose methods and data that can be invoked and interacted with from your application's frontend. For example, a simple "Counter" component might look like the following:
 
 ```php
-<?php
-
 namespace App\Http\Livewire;
 
 use Livewire\Component;
@@ -99,6 +101,8 @@ For many, Livewire has revolutionized frontend development with Laravel, allowin
 
 If you're new to Laravel, we recommend getting familiar with the basic usage of [views](/docs/{{version}}/views) and [Blade](/docs/{{version}}/blade). Then, consult the official [Laravel Livewire documentation](https://livewire.laravel.com/docs) to learn how to take your application to the next level with interactive Livewire components.
 
+<div style="page-break-after: always"></div>
+
 <a name="php-starter-kits"></a>
 ### Starter Kits
 
@@ -119,6 +123,8 @@ In addition, developers are left maintaining two separate code repositories, oft
 Thankfully, Laravel offers the best of both worlds. [Inertia](https://inertiajs.com) bridges the gap between your Laravel application and your modern React or Vue frontend, allowing you to build full-fledged, modern frontends using React or Vue while leveraging Laravel routes and controllers for routing, data hydration, and authentication — all within a single code repository. With this approach, you can enjoy the full power of both Laravel and React / Vue without crippling the capabilities of either tool.
 
 After installing Inertia into your Laravel application, you will write routes and controllers like normal. However, instead of returning a Blade template from your controller, you will return an Inertia page:
+
+<div style="page-break-after: always"></div>
 
 ```php
 <?php
@@ -162,6 +168,8 @@ export default function Show({ user }) {
 
 As you can see, Inertia allows you to leverage the full power of React or Vue when building your frontend, while providing a light-weight bridge between your Laravel powered backend and your JavaScript powered frontend.
 
+<div style="page-break-after: always"></div>
+
 #### Server-Side Rendering
 
 If you're concerned about diving into Inertia because your application requires server-side rendering, don't worry. Inertia offers [server-side rendering support](https://inertiajs.com/server-side-rendering). And, when deploying your application via [Laravel Cloud](https://cloud.laravel.com) or [Laravel Forge](https://forge.laravel.com), it's a breeze to ensure that Inertia's server-side rendering process is always running.
@@ -182,3 +190,5 @@ The fastest way to get started with Laravel and Vite is by beginning your applic
 
 > [!NOTE]
 > For more detailed documentation on utilizing Vite with Laravel, please see our [dedicated documentation on bundling and compiling your assets](/docs/{{version}}/vite).
+
+<div style="page-break-after: always"></div>

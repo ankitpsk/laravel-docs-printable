@@ -44,6 +44,8 @@ The Laravel framework has a few system requirements. You should ensure that your
 
 </div>
 
+<div style="page-break-after: always"></div>
+
 <a name="server-configuration"></a>
 ## Server Configuration
 
@@ -90,6 +92,8 @@ server {
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="frankenphp"></a>
 ### FrankenPHP
 
@@ -122,6 +126,8 @@ php artisan optimize:clear
 ```
 
 In the following documentation, we will discuss each of the granular optimization commands that are executed by the `optimize` command.
+
+<div style="page-break-after: always"></div>
 
 <a name="optimizing-configuration-loading"></a>
 ### Caching Configuration
@@ -168,6 +174,8 @@ php artisan view:cache
 
 This command precompiles all your Blade views so they are not compiled on demand, improving the performance of each request that returns a view.
 
+<div style="page-break-after: always"></div>
+
 <a name="debug-mode"></a>
 ## Debug Mode
 
@@ -194,6 +202,8 @@ By default, the health check route is served at `/up` and will return a 200 HTTP
 
 When HTTP requests are made to this route, Laravel will also dispatch a `Illuminate\Foundation\Events\DiagnosingHealth` event, allowing you to perform additional health checks relevant to your application. Within a [listener](/docs/{{version}}/events) for this event, you may check your application's database or cache status. If you detect a problem with your application, you may simply throw an exception from the listener.
 
+<div style="page-break-after: always"></div>
+
 <a name="deploying-with-cloud-or-forge"></a>
 ## Deploying With Laravel Cloud or Forge
 
@@ -210,3 +220,5 @@ Launch your Laravel application on Cloud and fall in love with the scalable simp
 If you prefer to manage your own servers but aren't comfortable configuring all of the various services needed to run a robust Laravel application, [Laravel Forge](https://forge.laravel.com) is a VPS server management platform for Laravel applications.
 
 Laravel Forge can create servers on various infrastructure providers such as DigitalOcean, Linode, AWS, and more. In addition, Forge installs and manages all of the tools needed to build robust Laravel applications, such as Nginx, MySQL, Redis, Memcached, Beanstalk, and more.
+
+<div style="page-break-after: always"></div>

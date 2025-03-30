@@ -17,6 +17,8 @@
     - [Laravel the Full Stack Framework](#laravel-the-fullstack-framework)
     - [Laravel the API Backend](#laravel-the-api-backend)
 
+<div style="page-break-after: always"></div>
+
 <a name="meet-laravel"></a>
 ## Meet Laravel
 
@@ -46,6 +48,8 @@ Need extreme scaling? Platforms like [Laravel Cloud](https://cloud.laravel.com) 
 #### A Community Framework
 
 Laravel combines the best packages in the PHP ecosystem to offer the most robust and developer friendly framework available. In addition, thousands of talented developers from around the world have [contributed to the framework](https://github.com/laravel/framework). Who knows, maybe you'll even become a Laravel contributor.
+
+<div style="page-break-after: always"></div>
 
 <a name="creating-a-laravel-project"></a>
 ## Creating a Laravel Application
@@ -80,6 +84,8 @@ composer global require laravel/installer
 
 > [!NOTE]
 > For a fully-featured, graphical PHP installation and management experience, check out [Laravel Herd](#installation-using-herd).
+
+<div style="page-break-after: always"></div>
 
 <a name="creating-an-application"></a>
 ### Creating an Application
@@ -120,6 +126,8 @@ Your `.env` file should not be committed to your application's source control, s
 > [!NOTE]
 > For more information about the `.env` file and environment based configuration, check out the full [configuration documentation](/docs/{{version}}/configuration#environment-configuration).
 
+<div style="page-break-after: always"></div>
+
 <a name="databases-and-migrations"></a>
 ### Databases and Migrations
 
@@ -152,6 +160,8 @@ php artisan migrate
 
 Laravel should always be served out of the root of the "web directory" configured for your web server. You should not attempt to serve a Laravel application out of a subdirectory of the "web directory". Attempting to do so could expose sensitive files present within your application.
 
+<div style="page-break-after: always"></div>
+
 <a name="installation-using-herd"></a>
 ## Installation Using Herd
 
@@ -182,6 +192,8 @@ Of course, you can always manage your parked directories and other PHP settings 
 
 You can learn more about Herd by checking out the [Herd documentation](https://herd.laravel.com/docs).
 
+<div style="page-break-after: always"></div>
+
 <a name="herd-on-windows"></a>
 ### Herd on Windows
 
@@ -210,6 +222,8 @@ You are free to use any code editor you wish when developing Laravel application
 In addition, the community maintained [Laravel Idea](https://laravel-idea.com/) PhpStorm plugin offers a variety of helpful IDE augmentations, including code generation, Eloquent syntax completion, validation rule completion, and more.
 
 If you develop in [Visual Studio Code (VS Code)](https://code.visualstudio.com), the official [Laravel VS Code Extension](https://marketplace.visualstudio.com/items?itemName=laravel.vscode-laravel) is now available. This extension brings Laravel-specific tools directly into your VS Code environment, enhancing productivity.
+
+<div style="page-break-after: always"></div>
 
 <a name="next-steps"></a>
 ## Next Steps
@@ -247,3 +261,5 @@ If you are using Laravel as a full stack framework, we also strongly encourage y
 Laravel may also serve as an API backend to a JavaScript single-page application or mobile application. For example, you might use Laravel as an API backend for your [Next.js](https://nextjs.org) application. In this context, you may use Laravel to provide [authentication](/docs/{{version}}/sanctum) and data storage / retrieval for your application, while also taking advantage of Laravel's powerful services such as queues, emails, notifications, and more.
 
 If this is how you plan to use Laravel, you may want to check out our documentation on [routing](/docs/{{version}}/routing), [Laravel Sanctum](/docs/{{version}}/sanctum), and the [Eloquent ORM](/docs/{{version}}/eloquent).
+
+<div style="page-break-after: always"></div>

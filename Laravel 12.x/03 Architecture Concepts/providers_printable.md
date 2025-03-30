@@ -21,6 +21,8 @@ All user-defined service providers are registered in the `bootstrap/providers.ph
 > [!NOTE]
 > If you would like to learn more about how Laravel handles requests and works internally, check out our documentation on the Laravel [request lifecycle](/docs/{{version}}/lifecycle).
 
+<div style="page-break-after: always"></div>
+
 <a name="writing-service-providers"></a>
 ## Writing Service Providers
 
@@ -64,6 +66,8 @@ class RiakServiceProvider extends ServiceProvider
 
 This service provider only defines a `register` method, and uses that method to define an implementation of `App\Services\Riak\Connection` in the service container. If you're not yet familiar with Laravel's service container, check out [its documentation](/docs/{{version}}/container).
 
+<div style="page-break-after: always"></div>
+
 <a name="the-bindings-and-singletons-properties"></a>
 #### The `bindings` and `singletons` Properties
 
@@ -103,6 +107,8 @@ class AppServiceProvider extends ServiceProvider
     ];
 }
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="the-boot-method"></a>
 ### The Boot Method
@@ -150,6 +156,8 @@ public function boot(ResponseFactory $response): void
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="registering-providers"></a>
 ## Registering Providers
 
@@ -173,6 +181,8 @@ return [
     App\Providers\ComposerServiceProvider::class, // [tl! add]
 ];
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="deferred-providers"></a>
 ## Deferred Providers
@@ -216,3 +226,5 @@ class RiakServiceProvider extends ServiceProvider implements DeferrableProvider
     }
 }
 ```
+
+<div style="page-break-after: always"></div>

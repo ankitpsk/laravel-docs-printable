@@ -27,6 +27,8 @@
     - [The `Providers` Directory](#the-providers-directory)
     - [The `Rules` Directory](#the-rules-directory)
 
+<div style="page-break-after: always"></div>
+
 <a name="introduction"></a>
 ## Introduction
 
@@ -65,6 +67,8 @@ The `public` directory contains the `index.php` file, which is the entry point f
 
 The `resources` directory contains your [views](/docs/{{version}}/views) as well as your raw, un-compiled assets such as CSS or JavaScript.
 
+<div style="page-break-after: always"></div>
+
 <a name="the-routes-directory"></a>
 ### The Routes Directory
 
@@ -96,6 +100,8 @@ The `tests` directory contains your automated tests. Example [Pest](https://pest
 ### The Vendor Directory
 
 The `vendor` directory contains your [Composer](https://getcomposer.org) dependencies.
+
+<div style="page-break-after: always"></div>
 
 <a name="the-app-directory"></a>
 ## The App Directory
@@ -134,6 +140,8 @@ The `Exceptions` directory contains all of the custom exceptions for your applic
 
 The `Http` directory contains your controllers, middleware, and form requests. Almost all of the logic to handle requests entering your application will be placed in this directory.
 
+<div style="page-break-after: always"></div>
+
 <a name="the-jobs-directory"></a>
 ### The Jobs Directory
 
@@ -164,6 +172,8 @@ This directory does not exist by default, but will be created for you if you exe
 
 This directory does not exist by default, but will be created for you if you execute the `make:policy` Artisan command. The `Policies` directory contains the [authorization policy classes](/docs/{{version}}/authorization) for your application. Policies are used to determine if a user can perform a given action against a resource.
 
+<div style="page-break-after: always"></div>
+
 <a name="the-providers-directory"></a>
 ### The Providers Directory
 
@@ -175,3 +185,5 @@ In a fresh Laravel application, this directory will already contain the `AppServ
 ### The Rules Directory
 
 This directory does not exist by default, but will be created for you if you execute the `make:rule` Artisan command. The `Rules` directory contains the custom validation rule objects for your application. Rules are used to encapsulate complicated validation logic in a simple object. For more information, check out the [validation documentation](/docs/{{version}}/validation).
+
+<div style="page-break-after: always"></div>

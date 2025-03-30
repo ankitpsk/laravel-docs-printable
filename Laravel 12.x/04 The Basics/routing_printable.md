@@ -43,6 +43,8 @@ Route::get('/greeting', function () {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="the-default-route-files"></a>
 ### The Default Route Files
 
@@ -82,6 +84,8 @@ The routes in `routes/api.php` are stateless and are assigned to the `api` [midd
     // ...
 )
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="available-router-methods"></a>
 #### Available Router Methods
@@ -125,6 +129,8 @@ Route::get('/users', function (Request $request) {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="csrf-protection"></a>
 #### CSRF Protection
 
@@ -160,6 +166,8 @@ Route::permanentRedirect('/here', '/there');
 
 > [!WARNING]
 > When using route parameters in redirect routes, the following parameters are reserved by Laravel and cannot be used: `destination` and `status`.
+
+<div style="page-break-after: always"></div>
 
 <a name="view-routes"></a>
 ### View Routes
@@ -205,6 +213,8 @@ In addition, you may instruct Laravel to hide any routes that are defined by thi
 php artisan route:list --except-vendor
 ```
 
+<div style="page-break-after: always"></div>
+
 Likewise, you may also instruct Laravel to only show routes that are defined by third-party packages by providing the `--only-vendor` option when executing the `route:list` command:
 
 ```shell
@@ -247,6 +257,8 @@ use Illuminate\Support\Facades\Route;
 )
 ```
 
+<div style="page-break-after: always"></div>
+
 Or, you may even take complete control over route registration by providing a `using` closure to the `withRouting` method. When this argument is passed, no HTTP routes will be registered by the framework and you are responsible for manually registering all routes:
 
 ```php
@@ -288,6 +300,8 @@ Route::get('/posts/{post}/comments/{comment}', function (string $postId, string 
 ```
 
 Route parameters are always encased within `{}` braces and should consist of alphabetic characters. Underscores (`_`) are also acceptable within route parameter names. Route parameters are injected into route callbacks / controllers based on their order - the names of the route callback / controller arguments do not matter.
+
+<div style="page-break-after: always"></div>
 
 <a name="parameters-and-dependency-injection"></a>
 #### Parameters and Dependency Injection
@@ -336,6 +350,8 @@ Route::get('/user/{id}/{name}', function (string $id, string $name) {
 })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
 ```
 
+<div style="page-break-after: always"></div>
+
 For convenience, some commonly used regular expression patterns have helper methods that allow you to quickly add pattern constraints to your routes:
 
 ```php
@@ -383,6 +399,8 @@ public function boot(): void
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 Once the pattern has been defined, it is automatically applied to all routes using that parameter name:
 
 ```php
@@ -428,6 +446,8 @@ Route::get(
 > [!WARNING]
 > Route names should always be unique.
 
+<div style="page-break-after: always"></div>
+
 <a name="generating-urls-to-named-routes"></a>
 #### Generating URLs to Named Routes
 
@@ -468,6 +488,8 @@ $url = route('profile', ['id' => 1, 'photos' => 'yes']);
 > [!NOTE]
 > Sometimes, you may wish to specify request-wide default values for URL parameters, such as the current locale. To accomplish this, you may use the [`URL::defaults` method](/docs/{{version}}/urls#default-values).
 
+<div style="page-break-after: always"></div>
+
 <a name="inspecting-the-current-route"></a>
 #### Inspecting the Current Route
 
@@ -492,6 +514,8 @@ public function handle(Request $request, Closure $next): Response
     return $next($request);
 }
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="route-groups"></a>
 ## Route Groups
@@ -530,6 +554,8 @@ Route::controller(OrderController::class)->group(function () {
     Route::post('/orders', 'store');
 });
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="route-group-subdomain-routing"></a>
 ### Subdomain Routing
@@ -573,6 +599,8 @@ Route::name('admin.')->group(function () {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="route-model-binding"></a>
 ## Route Model Binding
 
@@ -608,6 +636,8 @@ public function show(User $user)
     return view('user.profile', ['user' => $user]);
 }
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="implicit-soft-deleted-models"></a>
 #### Soft Deleted Models
@@ -646,6 +676,8 @@ public function getRouteKeyName(): string
     return 'slug';
 }
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="implicit-model-binding-scoping"></a>
 #### Custom Keys and Scoping
@@ -692,6 +724,8 @@ Route::get('/users/{user}/posts/{post:slug}', function (User $user, Post $post) 
 })->withoutScopedBindings();
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="customizing-missing-model-behavior"></a>
 #### Customizing Missing Model Behavior
 
@@ -737,6 +771,8 @@ Route::get('/categories/{category}', function (Category $category) {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="explicit-binding"></a>
 ### Explicit Binding
 
@@ -768,6 +804,8 @@ Route::get('/users/{user}', function (User $user) {
 Since we have bound all `{user}` parameters to the `App\Models\User` model, an instance of that class will be injected into the route. So, for example, a request to `users/1` will inject the `User` instance from the database which has an ID of `1`.
 
 If a matching model instance is not found in the database, a 404 HTTP response will be automatically generated.
+
+<div style="page-break-after: always"></div>
 
 <a name="customizing-the-resolution-logic"></a>
 #### Customizing the Resolution Logic
@@ -805,6 +843,8 @@ public function resolveRouteBinding($value, $field = null)
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 If a route is utilizing [implicit binding scoping](#implicit-model-binding-scoping), the `resolveChildRouteBinding` method will be used to resolve the child binding of the parent model:
 
 ```php
@@ -832,6 +872,8 @@ Route::fallback(function () {
     // ...
 });
 ```
+
+<div style="page-break-after: always"></div>
 
 <a name="rate-limiting"></a>
 ## Rate Limiting
@@ -877,6 +919,8 @@ protected function boot(): void
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 If the incoming request exceeds the specified rate limit, a response with a 429 HTTP status code will automatically be returned by Laravel. If you would like to define your own response that should be returned by a rate limit, you may use the `response` method:
 
 ```php
@@ -920,6 +964,8 @@ RateLimiter::for('uploads', function (Request $request) {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="multiple-rate-limits"></a>
 #### Multiple Rate Limits
 
@@ -962,6 +1008,8 @@ Route::middleware(['throttle:uploads'])->group(function () {
 });
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="throttling-with-redis"></a>
 #### Throttling With Redis
 
@@ -995,6 +1043,8 @@ For convenience, you may use the `@method` [Blade directive](/docs/{{version}}/b
 </form>
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="accessing-the-current-route"></a>
 ## Accessing the Current Route
 
@@ -1025,6 +1075,8 @@ This command will place a `cors.php` configuration file within your application'
 
 > [!NOTE]
 > For more information on CORS and CORS headers, please consult the [MDN web documentation on CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#The_HTTP_response_headers).
+
+<div style="page-break-after: always"></div>
 
 <a name="route-caching"></a>
 ## Route Caching
