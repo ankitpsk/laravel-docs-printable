@@ -1626,6 +1626,8 @@ $query->withAttributes([
 ], asConditions: false);
 ```
 
+<div style="page-break-after: always"></div>
+
 <a name="comparing-models"></a>
 ## Comparing Models
 
@@ -1659,6 +1661,8 @@ Eloquent models dispatch several events, allowing you to hook into the following
 
 The `retrieved` event will dispatch when an existing model is retrieved from the database. When a new model is saved for the first time, the `creating` and `created` events will dispatch. The `updating` / `updated` events will dispatch when an existing model is modified and the `save` method is called. The `saving` / `saved` events will dispatch when a model is created or updated - even if the model's attributes have not been changed. Event names ending with `-ing` are dispatched before any changes to the model are persisted, while events ending with `-ed` are dispatched after the changes to the model are persisted.
 
+<div style="page-break-after: always"></div>
+
 To start listening to model events, define a `$dispatchesEvents` property on your Eloquent model. This property maps various points of the Eloquent model's lifecycle to your own [event classes](/docs/{{version}}/events). Each model event class should expect to receive an instance of the affected model via its constructor:
 
 ```php
@@ -1673,7 +1677,6 @@ class User extends Authenticatable
     use Notifiable;
     /**
      * The event map for the model.
-     *
      * @var array<string, string>
      */
     protected $dispatchesEvents = [
@@ -1710,6 +1713,8 @@ class User extends Model
 }
 ```
 
+<div style="page-break-after: always"></div>
+
 If needed, you may utilize [queueable anonymous event listeners](/docs/{{version}}/events#queuable-anonymous-event-listeners) when registering model events. This will instruct Laravel to execute the model event listener in the background using your application's [queue](/docs/{{version}}/queues):
 
 ```php
@@ -1733,6 +1738,8 @@ php artisan make:observer UserObserver --model=User
 ```
 
 This command will place the new observer in your `app/Observers` directory. If this directory does not exist, Artisan will create it for you. Your fresh observer will look like the following:
+
+<div style="page-break-after: always"></div>
 
 ```php
 <?php
@@ -1784,6 +1791,8 @@ class UserObserver
     }
 }
 ```
+
+<div style="page-break-after: always"></div>
 
 To register an observer, you may place the `ObservedBy` attribute on the corresponding model:
 
